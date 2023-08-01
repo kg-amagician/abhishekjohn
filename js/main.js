@@ -124,7 +124,7 @@ $(document).ready(function () {
 //image changing in profile section
 // Wait for the DOM to load
 document.addEventListener("DOMContentLoaded", function () {
-  const images = ["img/slide/actor/1.jpeg", "img/slide/actor/2.jpeg", "img/slide/actor/3.jpeg", "img/slide/actor/4.jpg"]; // Add more image URLs here
+  const images = ["img/slide/actor/1.jpg", "img/slide/actor/2.jpg", "img/slide/actor/3.jpeg", "img/slide/actor/4.jpg"]; // Add more image URLs here
   let currentIndex = 0;
   const interval = 3000; // 3 seconds
 
