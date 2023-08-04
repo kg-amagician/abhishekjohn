@@ -124,7 +124,12 @@ $(document).ready(function () {
 //image changing in profile section
 // Wait for the DOM to load
 document.addEventListener("DOMContentLoaded", function () {
-  const images = ["img/slide/actor/1.jpg", "img/slide/actor/2.jpg", "img/slide/actor/3.jpeg", "img/slide/actor/4.jpg"]; // Add more image URLs here
+  const images = [
+    "img/slide/actor/1.jpg",
+    "img/slide/actor/2.jpg",
+    "img/slide/actor/3.jpeg",
+    "img/slide/actor/4.jpg",
+  ]; // Add more image URLs here
   let currentIndex = 0;
   const interval = 3000; // 3 seconds
 
@@ -150,7 +155,15 @@ document.addEventListener("DOMContentLoaded", function () {
 //Image change for 1st inbuild workproduction section
 // Wait for the DOM to load
 document.addEventListener("DOMContentLoaded", function () {
-  const images = ["img/slide/performace/1.jpg", "img/slide/performace/2.jpg", "img/slide/performace/3.jpg", "img/slide/performace/4.jpg", "img/slide/performace/5.jpg", "img/slide/performace/6.jpg", "img/slide/performace/7.jpg" ]; // Add more image URLs here
+  const images = [
+    "img/slide/performace/1.jpg",
+    "img/slide/performace/2.jpg",
+    "img/slide/performace/3.jpg",
+    "img/slide/performace/4.jpg",
+    "img/slide/performace/5.jpg",
+    "img/slide/performace/6.jpg",
+    "img/slide/performace/7.jpg",
+  ]; // Add more image URLs here
   let currentIndex = 0;
   const interval = 3000; // 3 seconds
 
@@ -176,8 +189,17 @@ document.addEventListener("DOMContentLoaded", function () {
 //image change for second image manipulation section
 // Wait for the DOM to load
 document.addEventListener("DOMContentLoaded", function () {
-  const images = ["img/slide/rehearsals/1.jpg", "img/slide/rehearsals/2.jpg","img/slide/rehearsals/3.jpg","img/slide/rehearsals/4.jpg",
-  "img/slide/rehearsals/5.jpg","img/slide/rehearsals/7.jpg","img/slide/rehearsals/11.jpg","img/slide/rehearsals/14.jpg","img/slide/rehearsals/16.jpg"]; // Add more image URLs here
+  const images = [
+    "img/slide/rehearsals/1.jpg",
+    "img/slide/rehearsals/2.jpg",
+    "img/slide/rehearsals/3.jpg",
+    "img/slide/rehearsals/4.jpg",
+    "img/slide/rehearsals/5.jpg",
+    "img/slide/rehearsals/7.jpg",
+    "img/slide/rehearsals/11.jpg",
+    "img/slide/rehearsals/14.jpg",
+    "img/slide/rehearsals/16.jpg",
+  ]; // Add more image URLs here
   let currentIndex = 0;
   const interval = 3000; // 3 seconds
 
@@ -239,3 +261,17 @@ async function handleSubmit(event) {
     });
 }
 form.addEventListener("submit", handleSubmit);
+
+// Function to scroll to a specific section based on the URL fragment
+function scrollToSection() {
+  const hash = window.location.hash;
+  if (hash) {
+    const element = document.querySelector(hash);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+}
+
+// Call the function when the page is loaded
+window.addEventListener("load", scrollToSection);
