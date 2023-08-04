@@ -37,6 +37,10 @@ p {
   flex-wrap: wrap;
 }
 
+.mapple-content {
+  flex-wrap: nowrap;
+}
+
 .align-items-center {
   align-items: center;
 }
@@ -586,8 +590,8 @@ nav ul li ul li a {
 }
 
 .service-section .service-item-inner img {
-  height:280px ;
-  width:350px;
+  height: 280px;
+  width: 350px;
   display: block;
   transition: all 0.5s ease;
 }
@@ -903,12 +907,10 @@ nav ul li ul li a {
   text-align: center;
   color: #000000;
 }
-.contact-lower h1:before{
-  
-    background-color: #ffffff;
-    left: 50%;
-    margin-left: -40px;
-  
+.contact-lower h1:before {
+  background-color: #ffffff;
+  left: 50%;
+  margin-left: -40px;
 }
 
 .contact-section .contact-form .form .input-group.left,
@@ -1071,6 +1073,10 @@ nav ul li ul li a {
 }
 
 @media (max-width: 575px) {
+  .mapple-content {
+    flex-wrap: wrap;
+  }
+
   .home-section .home-content h1 {
     font-size: 25px;
     letter-spacing: 5px;
