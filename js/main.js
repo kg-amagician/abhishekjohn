@@ -61,11 +61,9 @@ window.onscroll = function () {
 
 // Get the navbar
 var navbar = document.querySelector(".navigation");
-console.log(navigation);
 
 // Get the offset position of the navbar
 var sticky = navbar.offsetTop;
-console.log(sticky);
 
 // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
 function myFunction() {
@@ -94,7 +92,6 @@ window.scrollBy({
 
 //Redirection to another page
 const workitem = document.getElementsByClassName("work-item");
-console.log(window.location.host);
 
 for (var i = 0; i < workitem.length; i++) {
   workitem[i].addEventListener("click", () => {
@@ -103,28 +100,15 @@ for (var i = 0; i < workitem.length; i++) {
   });
 }
 
-//Video Carousel
-$(document).ready(function () {
-  $(".owl-carousel").owlCarousel({
-    items: 3,
-    dots: true,
-    autoplay: true,
-    lazyLoad: true,
-    responsive: {
-      480: {
-        items: 1,
-      },
-      600: {
-        items: 2,
-      },
-    },
-  });
-});
-
 //image changing in profile section
 // Wait for the DOM to load
 document.addEventListener("DOMContentLoaded", function () {
-  const images = ["img/slide/actor/1.jpg", "img/slide/actor/2.jpg", "img/slide/actor/3.jpeg", "img/slide/actor/4.jpg"]; // Add more image URLs here
+  const images = [
+    "img/slide/actor/1.jpg",
+    "img/slide/actor/2.jpg",
+    "img/slide/actor/3.jpeg",
+    "img/slide/actor/4.jpg",
+  ]; // Add more image URLs here
   let currentIndex = 0;
   const interval = 3000; // 3 seconds
 
@@ -150,7 +134,15 @@ document.addEventListener("DOMContentLoaded", function () {
 //Image change for 1st inbuild workproduction section
 // Wait for the DOM to load
 document.addEventListener("DOMContentLoaded", function () {
-  const images = ["img/slide/performace/1.jpg", "img/slide/performace/2.jpg", "img/slide/performace/3.jpg", "img/slide/performace/4.jpg", "img/slide/performace/5.jpg", "img/slide/performace/6.jpg", "img/slide/performace/7.jpg" ]; // Add more image URLs here
+  const images = [
+    "img/slide/performace/1.jpg",
+    "img/slide/performace/2.jpg",
+    "img/slide/performace/3.jpg",
+    "img/slide/performace/4.jpg",
+    "img/slide/performace/5.jpg",
+    "img/slide/performace/6.jpg",
+    "img/slide/performace/7.jpg",
+  ]; // Add more image URLs here
   let currentIndex = 0;
   const interval = 3000; // 3 seconds
 
@@ -176,8 +168,17 @@ document.addEventListener("DOMContentLoaded", function () {
 //image change for second image manipulation section
 // Wait for the DOM to load
 document.addEventListener("DOMContentLoaded", function () {
-  const images = ["img/slide/rehearsals/1.jpg", "img/slide/rehearsals/2.jpg","img/slide/rehearsals/3.jpg","img/slide/rehearsals/4.jpg",
-  "img/slide/rehearsals/5.jpg","img/slide/rehearsals/7.jpg","img/slide/rehearsals/11.jpg","img/slide/rehearsals/14.jpg","img/slide/rehearsals/16.jpg"]; // Add more image URLs here
+  const images = [
+    "img/slide/rehearsals/1.jpg",
+    "img/slide/rehearsals/2.jpg",
+    "img/slide/rehearsals/3.jpg",
+    "img/slide/rehearsals/4.jpg",
+    "img/slide/rehearsals/5.jpg",
+    "img/slide/rehearsals/7.jpg",
+    "img/slide/rehearsals/11.jpg",
+    "img/slide/rehearsals/14.jpg",
+    "img/slide/rehearsals/16.jpg",
+  ]; // Add more image URLs here
   let currentIndex = 0;
   const interval = 3000; // 3 seconds
 
@@ -239,3 +240,80 @@ async function handleSubmit(event) {
     });
 }
 form.addEventListener("submit", handleSubmit);
+
+//owl carousel
+$(".screenshots-carousel").owlCarousel({
+  loop: true,
+  margin: 0,
+  autoplay: true,
+  responsiveClass: true,
+  responsive: {
+    0: {
+      items: 1,
+    },
+    600: {
+      items: 3,
+    },
+    1000: {
+      items: 4,
+    },
+  },
+});
+
+$(".auditions-carousel").owlCarousel({
+  loop: true,
+  margin: 0,
+  autoplay: true,
+  responsiveClass: true,
+  responsive: {
+    0: {
+      items: 1,
+    },
+    600: {
+      items: 3,
+    },
+    1000: {
+      items: 4,
+    },
+  },
+});
+
+//Modal Working for the iframe
+// Get the modal element
+const modal = document.querySelector(".modal");
+// Get all the images inside the container
+const images = document.querySelectorAll(".modal-img");
+// Get the iframe element inside the modal
+const videoIframe = modal.querySelector(".video-iframe");
+// Get the close button inside the modal
+const closeButton = modal.querySelector(".close");
+
+// Function to open the modal and load the video URL
+function openModal(videoUrl) {
+  videoIframe.setAttribute("src", videoUrl);
+  modal.style.display = "block";
+}
+
+// Function to close the modal and stop the video
+function closeModal() {
+  videoIframe.setAttribute("src", "");
+  modal.style.display = "none";
+}
+
+// Attach click event listeners to each image
+images.forEach((image) => {
+  image.addEventListener("click", function () {
+    const videoUrl = this.getAttribute("video");
+    openModal(videoUrl);
+  });
+});
+
+// Attach click event listener to the close button
+closeButton.addEventListener("click", closeModal);
+
+// Attach click event listener to the modal itself to close when clicked outside the iframe
+modal.addEventListener("click", function (event) {
+  if (event.target === modal) {
+    closeModal();
+  }
+});
