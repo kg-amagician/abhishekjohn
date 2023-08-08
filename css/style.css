@@ -37,6 +37,10 @@ p {
   flex-wrap: wrap;
 }
 
+.mapple-content {
+  flex-wrap: nowrap;
+}
+
 .align-items-center {
   align-items: center;
 }
@@ -1021,6 +1025,10 @@ nav ul li ul li a {
 }
 
 @media (max-width: 575px) {
+  .mapple-content {
+    flex-wrap: wrap;
+  }
+
   .home-section .home-content h1 {
     font-size: 25px;
     letter-spacing: 5px;
