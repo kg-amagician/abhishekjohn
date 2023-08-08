@@ -317,3 +317,17 @@ modal.addEventListener("click", function (event) {
     closeModal();
   }
 });
+
+//redirection to #mapple
+function scrollToSection() {
+  const hash = window.location.hash;
+  if (hash) {
+    const element = document.querySelector(hash);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+}
+
+// Call the function when the page is loaded
+window.addEventListener('load', scrollToSection);
