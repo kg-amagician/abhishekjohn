@@ -61,11 +61,9 @@ window.onscroll = function () {
 
 // Get the navbar
 var navbar = document.querySelector(".navigation");
-console.log(navigation);
 
 // Get the offset position of the navbar
 var sticky = navbar.offsetTop;
-console.log(sticky);
 
 // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
 function myFunction() {
@@ -94,7 +92,6 @@ window.scrollBy({
 
 //Redirection to another page
 const workitem = document.getElementsByClassName("work-item");
-console.log(window.location.host);
 
 for (var i = 0; i < workitem.length; i++) {
   workitem[i].addEventListener("click", () => {
@@ -102,24 +99,6 @@ for (var i = 0; i < workitem.length; i++) {
     window.location.href = "gallery.html";
   });
 }
-
-//Video Carousel
-$(document).ready(function () {
-  $(".owl-carousel").owlCarousel({
-    items: 3,
-    dots: true,
-    autoplay: true,
-    lazyLoad: true,
-    responsive: {
-      480: {
-        items: 1,
-      },
-      600: {
-        items: 2,
-      },
-    },
-  });
-});
 
 //image changing in profile section
 // Wait for the DOM to load
@@ -262,16 +241,79 @@ async function handleSubmit(event) {
 }
 form.addEventListener("submit", handleSubmit);
 
-// Function to scroll to a specific section based on the URL fragment
-function scrollToSection() {
-  const hash = window.location.hash;
-  if (hash) {
-    const element = document.querySelector(hash);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  }
+//owl carousel
+$(".screenshots-carousel").owlCarousel({
+  loop: true,
+  margin: 0,
+  autoplay: true,
+  responsiveClass: true,
+  responsive: {
+    0: {
+      items: 1,
+    },
+    600: {
+      items: 3,
+    },
+    1000: {
+      items: 4,
+    },
+  },
+});
+
+$(".auditions-carousel").owlCarousel({
+  loop: true,
+  margin: 0,
+  autoplay: true,
+  responsiveClass: true,
+  responsive: {
+    0: {
+      items: 1,
+    },
+    600: {
+      items: 3,
+    },
+    1000: {
+      items: 4,
+    },
+  },
+});
+
+//Modal Working for the iframe
+// Get the modal element
+const modal = document.querySelector(".modal");
+// Get all the images inside the container
+const images = document.querySelectorAll(".modal-img");
+// Get the iframe element inside the modal
+const videoIframe = modal.querySelector(".video-iframe");
+// Get the close button inside the modal
+const closeButton = modal.querySelector(".close");
+
+// Function to open the modal and load the video URL
+function openModal(videoUrl) {
+  videoIframe.setAttribute("src", videoUrl);
+  modal.style.display = "block";
 }
 
-// Call the function when the page is loaded
-window.addEventListener("load", scrollToSection);
+// Function to close the modal and stop the video
+function closeModal() {
+  videoIframe.setAttribute("src", "");
+  modal.style.display = "none";
+}
+
+// Attach click event listeners to each image
+images.forEach((image) => {
+  image.addEventListener("click", function () {
+    const videoUrl = this.getAttribute("video");
+    openModal(videoUrl);
+  });
+});
+
+// Attach click event listener to the close button
+closeButton.addEventListener("click", closeModal);
+
+// Attach click event listener to the modal itself to close when clicked outside the iframe
+modal.addEventListener("click", function (event) {
+  if (event.target === modal) {
+    closeModal();
+  }
+});

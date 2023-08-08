@@ -347,6 +347,49 @@ nav ul li ul li a {
   transform: rotate(-45deg);
 }
 
+/* modal section  */
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: auto;
+}
+
+.modal iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 400px;
+}
+
+/* Close button styles */
+.close {
+  color: #ffffff;
+  position: absolute;
+  z-index: 9999;
+  right: 10%;
+  top: 5%;
+  font-size: 60px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /* home section  */
 .home-section {
   min-height: 100vh;
@@ -744,107 +787,16 @@ nav ul li ul li a {
   transform: tranlateX(0);
 }
 
-/* video carousel  */
-
-/* light box  */
-
-.lightbox {
-  position: fixed;
-  z-index: 1099;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: zoom-out;
-  display: none;
+/* carousel  */
+.screenshot-item {
+  margin: 15px;
 }
 
-.lightbox.open {
-  display: flex;
-}
-
-.lightbox .lightbox-img {
-  display: flex;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  padding: 40px 0;
-}
-
-.lightbox .img-box {
-  position: relative;
-  cursor: auto;
-}
-
-.lightbox .lightbox-close {
-  height: 30px;
-  width: 30px;
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 10px;
-  font-size: 30px;
-  color: #ffffff;
-  text-align: center;
-  line-height: 26px;
-  cursor: zoom-out;
-}
-
-.lightbox .lightbox-caption {
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 600;
-  position: absolute;
-  left: 0;
-  bottom: 10px;
-  display: flex;
-  justify-content: space-between;
+.screenshot-item img {
   width: 100%;
-}
-
-.lightbox .lightbox-caption .lightbox-category {
-  padding-right: 50px;
-}
-
-.lightbox .lightbox-controls .prev,
-.lightbox .lightbox-controls .next {
-  position: absolute;
-  height: calc(100% - 80px);
-  top: 40px;
+  display: block;
+  margin: auto;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.lightbox .lightbox-controls .prev {
-  left: 0;
-  justify-content: flex-start;
-  width: 50%;
-  padding-left: 5px;
-}
-.lightbox .lightbox-controls .next {
-  right: 0;
-  width: 50%;
-  justify-content: flex-end;
-  padding-right: 5px;
-}
-
-.lightbox .lightbox-controls .prev img,
-.lightbox .lightbox-controls .next img {
-  width: 30px;
-  height: 30px;
-  padding: 5px;
-  border-radius: 2px;
-  transition: all 0.5s;
-}
-
-.lightbox .lightbox-controls .prev:hover img,
-.lightbox .lightbox-controls .next:hover img {
-  background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* contact section */
@@ -1099,14 +1051,4 @@ nav ul li ul li a {
   .contact-section .contact-form .form {
     padding: 55px 5px;
   }
-}
-.owl-carousel .video iframe {
-  loading: lazy;
-  width: 350px;
-  height: 300px;
-}
-.owl-carousel2 .video iframe {
-  loading: lazy;
-  width: 280px;
-  height: 158px;
 }
